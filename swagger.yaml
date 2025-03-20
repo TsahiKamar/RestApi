@@ -21,7 +21,7 @@ tags:
 paths:
   /token:
     post:
-      summary: CREATE TEST ONLY TOKEN
+      summary: CREATE TOKEN
       description: Accepts username and password
       requestBody:
         content:
