@@ -53,3 +53,4 @@
 /Users/tsahikamar/Documents/RestApi/RestApi/obj/Debug/net9.0/RestApi.pdb
 /Users/tsahikamar/Documents/RestApi/RestApi/obj/Debug/net9.0/RestApi.genruntimeconfig.cache
 /Users/tsahikamar/Documents/RestApi/RestApi/obj/Debug/net9.0/ref/RestApi.dll
+/Users/tsahikamar/Documents/RestApi/RestApi/obj/Debug/net9.0/RestApi.sourcelink.json

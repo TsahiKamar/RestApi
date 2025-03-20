@@ -12,6 +12,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 
+//command : dotnet test
+
 namespace RestApi.Tests
 {
     public class TestTokenControllerTests
@@ -28,11 +30,12 @@ namespace RestApi.Tests
             // Set up the AppSettings mock with example values
             var appSettings = new AppSettings
             {
-                Secret = "supersecretkey", // Example secret key
+                Secret = "MHSDFAWSDHFIU8766532JXXXXXXXXXXXXXXXDEV",
                 Issuer = "issuer",
                 Audience = "audience",
                 ExpirationMinutes = 30
             };
+          
             _mockAppSettings.Setup(x => x.Value).Returns(appSettings);
 
             _controller = new TestTokenController(_mockConfiguration.Object, _mockAppSettings.Object);
