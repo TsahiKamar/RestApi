@@ -1,0 +1,301 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "contact" : {
+      "email" : "tsahikamar@gmail.com"
+    },
+    "description" : "This is a simple API",
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "title" : "Simple Calculator API",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "description" : "NGROK URL",
+    "url" : "https://a0c5-2a00-a040-192-6a3b-b1e0-92ab-106b-fc27.ngrok-free.app/api"
+  } ],
+  "security" : [ {
+    "bearerAuth" : [ ]
+  } ],
+  "tags" : [ {
+    "description" : "Secured Admin-only calls",
+    "name" : "admins"
+  }, {
+    "description" : "Operations available to regular developers",
+    "name" : "developers"
+  } ],
+  "paths" : {
+    "/token" : {
+      "post" : {
+        "description" : "Accepts username and password",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UserItem"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TokenResponseItem"
+                }
+              }
+            },
+            "description" : "Successfully created"
+          },
+          "400" : {
+            "description" : "Bad Request"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "404" : {
+            "description" : "Not found"
+          }
+        },
+        "security" : [ ],
+        "summary" : "CREATE TEST ONLY TOKEN"
+      }
+    },
+    "/calculator/multiply" : {
+      "post" : {
+        "description" : "Accepts two numbers and returns multiple result",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CalcItem"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CalcResponseItem"
+                }
+              }
+            },
+            "description" : "Successfully multiplied"
+          },
+          "400" : {
+            "description" : "Bad Request"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ],
+        "summary" : "Multiply two numbers"
+      }
+    },
+    "/calculator/divide" : {
+      "post" : {
+        "description" : "Accepts two numbers and returns the result of division",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CalcItem"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CalcResponseItem"
+                }
+              }
+            },
+            "description" : "Successfully divided"
+          },
+          "400" : {
+            "description" : "Bad Request"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "404" : {
+            "description" : "Not found"
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ],
+        "summary" : "Divide two numbers"
+      }
+    },
+    "/calculator/add" : {
+      "post" : {
+        "description" : "Accepts two numbers and returns the result of Add",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CalcItem"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CalcResponseItem"
+                }
+              }
+            },
+            "description" : "Successfully added"
+          },
+          "400" : {
+            "description" : "Bad Request"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "404" : {
+            "description" : "Not found"
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ],
+        "summary" : "Add two numbers"
+      }
+    },
+    "/calculator/subtraction" : {
+      "post" : {
+        "description" : "Accepts two numbers and returns the result of subtraction",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CalcItem"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CalcResponseItem"
+                }
+              }
+            },
+            "description" : "Successfully subtracted"
+          },
+          "400" : {
+            "description" : "Bad Request"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "404" : {
+            "description" : "Not found"
+          }
+        },
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ],
+        "summary" : "Subtraction two numbers"
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "CalcItem" : {
+        "example" : {
+          "num1" : 200,
+          "num2" : 500
+        },
+        "properties" : {
+          "num1" : {
+            "example" : 200,
+            "format" : "float",
+            "type" : "number"
+          },
+          "num2" : {
+            "example" : 500,
+            "format" : "float",
+            "type" : "number"
+          }
+        },
+        "required" : [ "num1", "num2" ],
+        "type" : "object"
+      },
+      "CalcResponseItem" : {
+        "example" : {
+          "result" : 0.8008282
+        },
+        "properties" : {
+          "result" : {
+            "format" : "float",
+            "type" : "number"
+          }
+        },
+        "required" : [ "result" ],
+        "type" : "object"
+      },
+      "UserItem" : {
+        "example" : {
+          "Username" : "Username",
+          "Password" : "Password"
+        },
+        "properties" : {
+          "Username" : {
+            "description" : "The username of the user",
+            "type" : "string"
+          },
+          "Password" : {
+            "description" : "The password for the user",
+            "type" : "string"
+          }
+        },
+        "required" : [ "Password", "Username" ],
+        "type" : "object"
+      },
+      "TokenResponseItem" : {
+        "example" : {
+          "token" : "token"
+        },
+        "properties" : {
+          "token" : {
+            "description" : "desc",
+            "type" : "string"
+          }
+        },
+        "required" : [ "token" ],
+        "type" : "object"
+      }
+    },
+    "securitySchemes" : {
+      "bearerAuth" : {
+        "bearerFormat" : "JWT",
+        "scheme" : "bearer",
+        "type" : "http"
+      }
+    }
+  }
+}

@@ -1,0 +1,192 @@
+openapi: 3.0.0
+info:
+  title: Simple Calculator API
+  description: This is a simple API
+  contact:
+    email: tsahikamar@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://a0c5-2a00-a040-192-6a3b-b1e0-92ab-106b-fc27.ngrok-free.app/api
+  description: NGROK URL
+security:
+- bearerAuth: []
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+paths:
+  /token:
+    post:
+      summary: CREATE TEST ONLY TOKEN
+      description: Accepts username and password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserItem'
+        required: true
+      responses:
+        "200":
+          description: Successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponseItem'
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not found
+      security: []
+  /calculator/multiply:
+    post:
+      summary: Multiply two numbers
+      description: Accepts two numbers and returns multiple result
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalcItem'
+        required: true
+      responses:
+        "200":
+          description: Successfully multiplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalcResponseItem'
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+      security:
+      - bearerAuth: []
+  /calculator/divide:
+    post:
+      summary: Divide two numbers
+      description: Accepts two numbers and returns the result of division
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalcItem'
+        required: true
+      responses:
+        "200":
+          description: Successfully divided
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalcResponseItem'
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not found
+      security:
+      - bearerAuth: []
+  /calculator/add:
+    post:
+      summary: Add two numbers
+      description: Accepts two numbers and returns the result of Add
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalcItem'
+        required: true
+      responses:
+        "200":
+          description: Successfully added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalcResponseItem'
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not found
+      security:
+      - bearerAuth: []
+  /calculator/subtraction:
+    post:
+      summary: Subtraction two numbers
+      description: Accepts two numbers and returns the result of subtraction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalcItem'
+        required: true
+      responses:
+        "200":
+          description: Successfully subtracted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalcResponseItem'
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not found
+      security:
+      - bearerAuth: []
+components:
+  schemas:
+    CalcItem:
+      required:
+      - num1
+      - num2
+      type: object
+      properties:
+        num1:
+          type: number
+          format: float
+          example: 200
+        num2:
+          type: number
+          format: float
+          example: 500
+    CalcResponseItem:
+      required:
+      - result
+      type: object
+      properties:
+        result:
+          type: number
+          format: float
+    UserItem:
+      required:
+      - Password
+      - Username
+      type: object
+      properties:
+        Username:
+          type: string
+          description: The username of the user
+        Password:
+          type: string
+          description: The password for the user
+    TokenResponseItem:
+      required:
+      - token
+      type: object
+      properties:
+        token:
+          type: string
+          description: desc
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,8 @@
+/Users/tsahikamar/Documents/RestApi/UT/bin/Debug/net9.0/.msCoverageSourceRootsMapping_UT
+/Users/tsahikamar/Documents/RestApi/UT/bin/Debug/net9.0/CoverletSourceRootsMapping_UT
+/Users/tsahikamar/Documents/RestApi/UT/obj/Debug/net9.0/UT.csproj.AssemblyReference.cache
+/Users/tsahikamar/Documents/RestApi/UT/obj/Debug/net9.0/MvcTestingAppManifest.json
+/Users/tsahikamar/Documents/RestApi/UT/obj/Debug/net9.0/UT.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tsahikamar/Documents/RestApi/UT/obj/Debug/net9.0/UT.AssemblyInfoInputs.cache
+/Users/tsahikamar/Documents/RestApi/UT/obj/Debug/net9.0/UT.AssemblyInfo.cs
+/Users/tsahikamar/Documents/RestApi/UT/obj/Debug/net9.0/UT.csproj.CoreCompileInputs.cache
