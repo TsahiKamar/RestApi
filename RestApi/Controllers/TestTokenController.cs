@@ -25,6 +25,7 @@ public class TestTokenController : ControllerBase
         _appSettings = appSettings.Value;
     }
 
+    //https://e45c-2a00-a040-192-6a3b-4ca5-b099-873-7be5.ngrok-free.app/api/multiply
     /// <summary>
     /// Create init JWT token after validate username & password
     /// </summary>

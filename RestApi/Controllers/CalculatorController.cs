@@ -43,7 +43,7 @@ namespace RestApi.Controllers
         }
 
        #region Public Methods
-
+        //https://e45c-2a00-a040-192-6a3b-4ca5-b099-873-7be5.ngrok-free.app/api/calculator/multiply
         /// <summary>
         /// Multiply two numbers and return operation result
         /// </summary>
@@ -63,6 +63,7 @@ namespace RestApi.Controllers
             }
         }
 
+        //https://e45c-2a00-a040-192-6a3b-4ca5-b099-873-7be5.ngrok-free.app/api/calculator/divide
         /// <summary>
         /// Divide two numbers and return operation result
         /// </summary>
@@ -82,6 +83,7 @@ namespace RestApi.Controllers
             }
         }
 
+        //https://e45c-2a00-a040-192-6a3b-4ca5-b099-873-7be5.ngrok-free.app/api/calculator/add
         /// <summary>
         /// Add two numbers and return operation result
         /// </summary>
@@ -101,6 +103,7 @@ namespace RestApi.Controllers
             }
         }
 
+        //https://e45c-2a00-a040-192-6a3b-4ca5-b099-873-7be5.ngrok-free.app/api/calculator/subtract
         /// <summary>
         /// Substruct two numbers and return operation result
         /// </summary>
