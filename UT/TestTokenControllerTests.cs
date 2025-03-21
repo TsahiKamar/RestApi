@@ -11,6 +11,7 @@ using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.Extensions.Logging;
 
 //command : dotnet test
 
@@ -21,6 +22,9 @@ namespace RestApi.Tests
         private readonly TestTokenController _controller;
         private readonly Mock<IConfiguration> _mockConfiguration;
         private readonly Mock<IOptions<AppSettings>> _mockAppSettings;
+
+        private readonly Mock<ILogger<TestTokenController>> _mockLogger;
+
 
         public TestTokenControllerTests()
         {
@@ -35,10 +39,14 @@ namespace RestApi.Tests
                 Audience = "audience",
                 ExpirationMinutes = 30
             };
+
+            // Mock the ILogger
+            _mockLogger = new Mock<ILogger<TestTokenController>>();
           
             _mockAppSettings.Setup(x => x.Value).Returns(appSettings);
 
-            _controller = new TestTokenController(_mockConfiguration.Object, _mockAppSettings.Object);
+            _controller = new TestTokenController(_mockConfiguration.Object, _mockAppSettings.Object,_mockLogger.Object);
+
         }
 
         [Fact]
