@@ -2,7 +2,7 @@
 # docker build -t RestApi
 
 # RUN THE DOCKER CONTAINER
-# docker run -d -p 8080:80 --name RestApiContainer RestApi
+# docker run -d -p 5159:80 --name RestApiContainer RestApi
 
 # RUNNING THE DOCKER CONTAINER WITH DOCKER COMPOSE
 
