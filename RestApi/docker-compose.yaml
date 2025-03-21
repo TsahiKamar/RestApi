@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   webapi:
-    image: CalculatorApiImage
+    image: RestApi
     build: .
     ports:
       - "5159:80"
