@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  webapi:
+    image: CalculatorApiImage
+    build: .
+    ports:
+      - "5159:80"
+    environment:
+      - ASPNETCORE_URLS=http://+:80  # Ensure the app listens on all network interfaces inside the container
+
