@@ -14,7 +14,7 @@
   },
   "servers" : [ {
     "description" : "NGROK URL",
-    "url" : "https://a0c5-2a00-a040-192-6a3b-b1e0-92ab-106b-fc27.ngrok-free.app/api"
+    "url" : "https://3bc2-2a00-a040-192-6a3b-9587-7f1e-a1d3-8c82.ngrok-free.app/api"
   } ],
   "security" : [ {
     "bearerAuth" : [ ]
