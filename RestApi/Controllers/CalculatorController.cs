@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using Microsoft.Extensions.Logging;
 
 using RestApi.Models;
 using RestApi.BL;
@@ -35,12 +36,14 @@ namespace RestApi.Controllers
     public class CalculatorController : ControllerBase
     {
         private readonly CalcBL _calcBL;
+        private readonly ILogger<CalculatorController> _logger;
 
-   
-        public CalculatorController(CalcBL calcBL)
+        public CalculatorController(CalcBL calcBL, ILogger<CalculatorController> logger)
         {
             _calcBL = calcBL;
+            _logger = logger;
         }
+
 
        #region Public Methods
         //https://e45c-2a00-a040-192-6a3b-4ca5-b099-873-7be5.ngrok-free.app/api/calculator/multiply
@@ -57,8 +60,9 @@ namespace RestApi.Controllers
                 var result = _calcBL.Multiply(request.Num1, request.Num2);
                 return Ok(new { result });
             }
-            catch (Exception ex)
+            catch (Exception ex)                              
             {
+                _logger.LogError(ex, "Error occurred during multiplication of {Num1} and {Num2}", request.Num1, request.Num2);
                 return BadRequest(new { message = ex.Message });
             }
         }
@@ -79,6 +83,7 @@ namespace RestApi.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error occurred during division of {Num1} and {Num2}", request.Num1, request.Num2);
                 return BadRequest(new { message = ex.Message });
             }
         }
@@ -99,6 +104,7 @@ namespace RestApi.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error occurred during addition of {Num1} and {Num2}", request.Num1, request.Num2);
                 return BadRequest(new { message = ex.Message });
             }
         }
@@ -119,6 +125,7 @@ namespace RestApi.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error occurred during subtraction of {Num1} and {Num2}", request.Num1, request.Num2);
                 return BadRequest(new { message = ex.Message });
             }
         }
