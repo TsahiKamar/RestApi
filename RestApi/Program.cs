@@ -1,6 +1,8 @@
 //########## Commnads for running the service ##########
 //1. dotnet run  -> listen to http://localhost:5159
-//2. ngrock http 5159(1. port number) -> listen to http://0.0.0.0:5159
+//2. ngrok http 5159(1. port number) -> listen to http://0.0.0.0:5159 
+//   then see the command line Farwading Service URL - >
+//   for example : Forwarding  https://3bc2-2a00-a040-192-6a3b-9587-7f1e-a1d3-8c82.ngrok-free.app 
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
